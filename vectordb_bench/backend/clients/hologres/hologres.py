@@ -338,7 +338,7 @@ class Hologres(VectorDB):
             log.warning(f"Failed to create index on table: {self.table_name} error: {e}")
             raise e from None
 
-    def _set_replica_count(self, replica_count: int = 2):
+    def _set_replica_count(self, replica_count: int = 4):
         conn = self._get_conn()
         cursor = self._get_cursor()
 
@@ -390,7 +390,7 @@ class Hologres(VectorDB):
         finally:
             conn.commit()
 
-        self._set_replica_count(replica_count=2)
+        self._set_replica_count(replica_count=4)
 
         sql_table = sql.SQL("""
             CREATE TABLE IF NOT EXISTS {table_name} (
