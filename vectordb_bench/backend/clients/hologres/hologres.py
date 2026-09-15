@@ -403,6 +403,7 @@ class Hologres(VectorDB):
                 embedding FLOAT4[] CHECK (array_ndims(embedding) = 1 AND array_length(embedding, 1) = {dim})
             )
             WITH (table_group = {tg_name},
+                  distribution_key = 'id',
                   clustering_key = 'id');
             """).format(
             table_name=sql.Identifier(self.table_name),
