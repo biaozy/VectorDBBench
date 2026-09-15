@@ -402,7 +402,8 @@ class Hologres(VectorDB):
                 id BIGINT NOT NULL,
                 embedding FLOAT4[] CHECK (array_ndims(embedding) = 1 AND array_length(embedding, 1) = {dim})
             )
-            WITH (table_group = {tg_name});
+            WITH (table_group = {tg_name},
+                  clustering_key = 'id');
             """).format(
             table_name=sql.Identifier(self.table_name),
             dim=dim,
