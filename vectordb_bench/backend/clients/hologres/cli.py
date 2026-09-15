@@ -37,7 +37,7 @@ class HologresHGraphTypedDict(CommonTypedDict, HologresTypedDict, HNSWFlavor5):
         click.option(
             "--full-compact-max-file-size-mb",
             type=int,
-            default=16384,
+            default=32768,
             show_default=True,
             help="Max file size (MB) for full compaction of the HGraph index",
         ),

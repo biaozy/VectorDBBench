@@ -31,8 +31,7 @@ class HologresIndexConfig(BaseModel, DBCaseConfig):
 
     min_flush_proxima_row_count: int = 1000
     min_compaction_proxima_row_count: int = 1000
-    max_total_size_to_merge_mb: int = 4096
-    full_compact_max_file_size_mb: int = 16384
+    full_compact_max_file_size_mb: int = 32768
 
     # Base quantization type for HGraph index.
     # Available values: "rabitq", "sq8_uniform", "fp32"
@@ -113,7 +112,7 @@ class HologresIndexConfig(BaseModel, DBCaseConfig):
         base_quantization_type = self.quantization_method if self.use_reorder else "fp32"
 
         params = {
-            "max_total_size_to_merge_mb": self.max_total_size_to_merge_mb,
+            "max_total_size_to_merge_mb": self.full_compact_max_file_size_mb,
             "build_thread_count": self.build_thread_count,
             "base_quantization_type": base_quantization_type,
             "max_degree": self.max_degree,
