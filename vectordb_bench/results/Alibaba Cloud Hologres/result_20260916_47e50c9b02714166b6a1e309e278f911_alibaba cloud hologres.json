@@ -1,0 +1,178 @@
+{
+  "run_id": "47e50c9b02714166b6a1e309e278f911",
+  "task_label": "47e50c9b02714166b6a1e309e278f911",
+  "results": [
+    {
+      "metrics": {
+        "max_load_count": 0,
+        "insert_duration": 2575.4319,
+        "optimize_duration": 4401.4906,
+        "load_duration": 6976.9225,
+        "qps": 92493.8696,
+        "serial_latency_p99": 0.0011,
+        "serial_latency_p95": 0.001,
+        "serial_latency_p50": 0.0009,
+        "recall": 0.9927,
+        "recall_at": {
+          "100": 0.9927
+        },
+        "ndcg": 0.994,
+        "mrr": 0.0,
+        "conc_num_list": [
+          1,
+          80,
+          90,
+          95,
+          100,
+          110,
+          120,
+          130
+        ],
+        "conc_qps_list": [
+          1294.5352,
+          76134.7997,
+          81524.4466,
+          83946.1374,
+          86639.7678,
+          89754.7535,
+          92493.8696,
+          91793.9696
+        ],
+        "conc_latency_p99_list": [
+          0.0009508744010236113,
+          0.0013678637598059141,
+          0.0014796295447740704,
+          0.001542687454202678,
+          0.0015968138060998174,
+          0.0017982270079664893,
+          0.002236009436892342,
+          0.005974723196122717
+        ],
+        "conc_latency_p95_list": [
+          0.0008864914125297217,
+          0.001231651913258247,
+          0.0013049708155449475,
+          0.001346179003303405,
+          0.0013798080035485327,
+          0.0014780543948290869,
+          0.0015771264035720363,
+          0.0017149954044725741
+        ],
+        "conc_latency_p50_list": [
+          0.0007567749998997897,
+          0.001009052008157596,
+          0.00105355100822635,
+          0.0010780840093502775,
+          0.0010948299895972013,
+          0.0011479360109660774,
+          0.0011882429826073349,
+          0.0012348220043350011
+        ],
+        "conc_latency_avg_list": [
+          0.0007697153861261854,
+          0.001025931233332609,
+          0.001074575171794358,
+          0.001101157161984593,
+          0.0011202893252881395,
+          0.0011862762414656422,
+          0.0012524289348552363,
+          0.0013669821138696007
+        ],
+        "payload_profile": "ids_only",
+        "payload_estimated_bytes_per_query": 2000,
+        "inserted_count": 10000000,
+        "insert_rows_per_second": 0.0,
+        "insert_completion_seconds": 0.0,
+        "searchable_after_insert_seconds": 0.0,
+        "indexed_after_searchable_seconds": 0.0,
+        "additional_parameters": {
+          "insert_batch_size": 100,
+          "load_concurrency": 0,
+          "ground_truth": {
+            "file": "neighbors.parquet",
+            "query_count": 1000,
+            "width": 10000
+          }
+        },
+        "st_ideal_insert_duration": 0,
+        "st_search_stage_list": [],
+        "st_search_time_list": [],
+        "st_max_qps_list_list": [],
+        "st_recall_list": [],
+        "st_ndcg_list": [],
+        "st_serial_latency_p99_list": [],
+        "st_serial_latency_p95_list": [],
+        "st_conc_failed_rate_list": [],
+        "st_conc_num_list_list": [],
+        "st_conc_qps_list_list": [],
+        "st_conc_latency_p99_list_list": [],
+        "st_conc_latency_p95_list_list": [],
+        "st_conc_latency_avg_list_list": []
+      },
+      "task_config": {
+        "db": "Alibaba Cloud Hologres",
+        "db_config": {
+          "db_label": "32c128g-4.2",
+          "version": "",
+          "note": "",
+          "user_name": "**********",
+          "password": "**********",
+          "host": "hgpostcn-cn-0yf4yimx6005-cn-beijing-vpc-st.hologres.aliyuncs.com",
+          "port": 80,
+          "db_name": "vector_test"
+        },
+        "db_case_config": {
+          "index": "HGraph",
+          "metric_type": "COSINE",
+          "create_index_before_load": false,
+          "create_index_after_load": true,
+          "min_flush_proxima_row_count": 1000,
+          "min_compaction_proxima_row_count": 1000,
+          "full_compact_max_file_size_mb": 32768,
+          "quantization_method": "rabitq",
+          "precise_quantization_type": "fp32",
+          "precise_io_type": "block_memory_io",
+          "use_reorder": true,
+          "build_thread_count": 16,
+          "max_degree": 64,
+          "ef_construction": 400,
+          "use_extra_column_id": true,
+          "ef_search": 4000
+        },
+        "case_config": {
+          "case_id": 4,
+          "custom_case": {},
+          "payload_profile": "ids_only",
+          "k": 100,
+          "concurrency_search_config": {
+            "num_concurrency": [
+              1,
+              80,
+              90,
+              95,
+              100,
+              110,
+              120,
+              130
+            ],
+            "concurrency_duration": 10,
+            "concurrency_timeout": 3600,
+            "serial_cooldown": 10.0
+          }
+        },
+        "stages": [
+          "drop_old",
+          "load",
+          "search_serial",
+          "search_concurrent"
+        ],
+        "load_concurrency": 0,
+        "insert_batch_size": 100
+      },
+      "label": ":)",
+      "dataset_metadata": null
+    }
+  ],
+  "file_fmt": "result_{}_{}_{}.json",
+  "timestamp": 1789488000.0
+}
